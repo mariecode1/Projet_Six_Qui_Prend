@@ -32,7 +32,8 @@ public class Start {
     }
 
     public static void regle(){
-        method.printTitle("Regle du jeu :");
+        //display game rules in the console and the javaFx interface
+        method.printTitle("Règles du jeu :");
         System.out.println(
                 "Nombre de joueurs : 2 à 10 joueurs\n" +
                         "\n" +
@@ -101,7 +102,7 @@ public class Start {
                     point += joueursPli.get(i).get(j).getNbTaureau();
                 }
                 scores.add(point);
-                System.out.println("Nombre de taureaux pour le joueur " + i + " : " + point);
+                System.out.println("Number of bull heads for the player " + i + " : " + point);
             }
             method.enterContinue();
             method.clearConsole();
@@ -115,7 +116,7 @@ public class Start {
             Platform.runLater(() -> {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.initOwner(primaryStage);
-                alert.setTitle("Regle du jeu");
+                alert.setTitle("Game Rules");
                 alert.setHeaderText(null);
                 alert.setContentText(message);
                 alert.showAndWait();

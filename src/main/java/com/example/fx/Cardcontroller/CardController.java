@@ -1,44 +1,20 @@
 package com.example.fx.Cardcontroller;
 
-import com.example.fx.object.Card;
 import com.example.fx.joueurs.joueurs;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
-import javafx.application.Application;
-import java.net.URL;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import java.util.ResourceBundle;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
-import com.example.fx.joueurs.joueurs.*;
-
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.Collections;
-
-import static com.example.fx.joueurs.joueurs.main;
 
 public class CardController{
     public static void start(int j) {
@@ -48,15 +24,17 @@ public class CardController{
         mainJoueur.setStyle("-fx-background-color: White");
         mainJoueur.setPadding(new Insets(10));
         for (int i =0 ;i<joueurs.joueurs.get(j).size();i++){
-            ajouterCarteDansMain(mainJoueur,joueurs.joueurs.get(j).get(i).getNum_card(),j,i);
+            addCardToHand(mainJoueur,joueurs.joueurs.get(j).get(i).getNum_card(),j,i);
         }
         // Création de la scène principale
         Parent root = mainJoueur;
         joueurs.mainFx.add(root);
     }
 
-    // Fonction pour ajouter une carte à la main du joueur
-    private static void ajouterCarteDansMain(HBox mainJoueur, int valeur, int j, int i) {
+
+    private static void addCardToHand(HBox mainJoueur, int valeur, int j, int i) {
+        // Function to add a card to the player's hand
+        
         Rectangle carte = new Rectangle(100,130,Color.WHITE);
         carte.setArcWidth(10);
         carte.setArcHeight(10);

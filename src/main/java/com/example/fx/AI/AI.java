@@ -29,7 +29,10 @@ public class AI {
     public static List<List<Card>> joueursPliV = new ArrayList<>();
     private static List<Integer> ScoreV = new ArrayList<>();
     private static int l;
+
+
     public static void makeListIdentical(Card[][] list1, Card[][] list2) {
+        //This function takes 2 lists as an argument and makes list 1 equal to list 2
         for (int i = 0; i < list1.length; i++) {
             for (int j = 0; j < list1[0].length; j++) {
                 list1[i][j] = list2[i][j];
@@ -73,9 +76,10 @@ public class AI {
         for (int j = 0; j<joueursPliV.get(joueurs.joueurs.size()-1).size();j++){
             pointV += joueursPliV.get(joueurs.joueurs.size()-1).get(j).getNbTaureau();
         }
-        return pointV;
+        return pointV; //Number of points calculated from the number of bull's head
     }
     private static void chooseMin(int point){
+        //will choose the move that earns him the fewest points
         int min = Savemouv.get(2);
         if(point<min){
             Savemouv.clear();
@@ -95,6 +99,7 @@ public class AI {
         return lastcol;
     }
     public static boolean verifV(Card Cardplay,int choix){
+       // Will check that the move is valid, i.e. if the card on the deck is larger than the last card in the deck
         for (int k = 0; k < 4; k++) {
             int indexLastcol=lastcolV(k);
             if (Cardplay.getNum_card() > rangeesV[indexLastcol][k].getNum_card()) {
@@ -104,6 +109,7 @@ public class AI {
         return false;
     }
     static void turnV(int i,Card cardPlay){
+        //play the card choosen
         int indexRangee = 0;
         int lastcol;
         int indexLastcol=lastcolV(0);
@@ -144,7 +150,7 @@ public class AI {
         int randomInputCol= random.nextInt(4);
         int randomInputAI;
         if (ordimainV.size()!=1) {
-            randomInputAI= random.nextInt(ordimainV.size()-1);
+            randomInputAI= random.nextInt(ordimainV.size()-1);  //choisit un entier au hasard s'il y a + d'une carte dans le paquet
         }
         else {
             randomInputAI=0;
@@ -153,12 +159,12 @@ public class AI {
             Save = randomInputAI;
             Savecol = randomInputCol;
         }
-        if (verifV(ordimainV.get(randomInputAI), randomInputAI) == true){
+        if (verifV(ordimainV.get(randomInputAI), randomInputAI) == true){ //if the move is valid, play the card
             turnV(joueurs.joueurs.size()-1,joueurs.joueurs.get(joueurs.joueurs.size()-1).get(randomInputAI));
             ordimainV.remove(randomInputAI);
         }
         else{
-            rammasserV(joueurs.joueurs.size()-1,randomInputCol,ordimainV.get(randomInputAI));
+            rammasserV(joueurs.joueurs.size()-1,randomInputCol,ordimainV.get(randomInputAI)); //
             ordimainV.remove(randomInputAI);
 
         }
@@ -175,8 +181,6 @@ public class AI {
                 rammasserV(i, randomInputCol, Allcarte.get(randomInput));
                 SaveCard.add(Allcarte.get(randomInput));
                 Allcarte.remove(randomInput);
-
-
             }
         }
 
