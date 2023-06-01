@@ -3,11 +3,16 @@ package com.example.fx.mechanic;
 import com.example.fx.AI.AI;
 import com.example.fx.method;
 import com.example.fx.object.Card;
+import com.example.fx.HelloApplication;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +25,12 @@ import static com.example.fx.mechanic.turn.game;
 import static com.example.fx.object.Card.cartes;
 
 public class Start {
+    private static Stage primaryStage;
+    public static int ia;
+    public Start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
     public static void regle(){
         method.printTitle("Regle du jeu :");
         System.out.println(
@@ -44,77 +55,71 @@ public class Start {
         method.clearConsole();
     }
 
-    public static void start(){
+        public static void start () throws IOException {
+            Random random = new Random();
+            // Mélanger les cartes
+            Collections.shuffle(cartes);
+            for (int i = 0; i < nbr_joueur; i++) {
+                main = new ArrayList<>();
+                mainFx = new ArrayList<>();
+                bin = new ArrayList<>();
+                joueurs.add(main);
+                joueursPli.add(bin);
+                AI.joueursPliV.add(AI.binV);
+            }
+            if (ia == 1) {
+                joueurs.add(AI.ordimain);
+                joueursPli.add(AI.ordibin);
+                AI.joueursPliV.add(AI.ordibinV);
+            }
 
-        Random random = new Random();
-        Card.cart();
-        // Mélanger les cartes
-        Collections.shuffle(cartes);//MELANGER
+            for (int j = 0; j < 10; j++) {
+                method.printLine(20);
+                for (int i = 0; i <= joueurs.size() - 1; i++) {
+                    joueurs.get(i).add(cartes.get(0));
+                    cartes.remove(cartes.get(0));
+                    show(i);
 
-        System.out.println("combien de joueur etes vous :");
-        int nbr_joueur= sc.nextInt();
-        System.out.println("Voulez-vous ajouter une IA :" +
-                "1. yes       2. no");
-        int ia=method.scInt("->",2);
-
-
-        // Distribuer les cartes aux joueurs
-        for (int i = 0; i < nbr_joueur; i++) {
-            main = new ArrayList<>();
-            bin = new ArrayList<>();
-            joueurs.add(main);
-            joueursPli.add(bin);
-            AI.joueursPliV.add(AI.binV);
-        }
-        if (ia==1){
-            joueurs.add(AI.ordimain);
-            joueursPli.add(AI.ordibin);
-            AI.joueursPliV.add(AI.ordibinV);
-        }
-
-        for (int j = 0; j < 10; j++) {// DISTRIBUTION
-            method.printLine(20);
-            for (int i = 0; i <=joueurs.size()-1; i++) {
-                joueurs.get(i).add(cartes.get(0));
-                cartes.remove(cartes.get(0));
-                show(i);
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
                 }
+                method.printLine(20);
+                method.clearConsole();
             }
-            method.printLine(20);
+            AI.carteRest();
+
+            System.out.println();
+        }
+
+        public static void GameLogic () {
+            init();
+            while (joueurs.get(joueurs.size() - 1).size() != 0) {
+                game();
+            }
+            List<Integer> scores = new ArrayList<>();
+            for (int i = 0; i < joueurs.size(); i++) {
+                int point = 0;
+                for (int j = 0; j < joueursPli.get(i).size(); j++) {
+                    point += joueursPli.get(i).get(j).getNbTaureau();
+                }
+                scores.add(point);
+                System.out.println("Nombre de taureaux pour le joueur " + i + " : " + point);
+            }
+            method.enterContinue();
             method.clearConsole();
+            method.printLine(40);
+            afficherElementPlusPetit(scores);
+            afficherElementPlusGrand(scores);
+            method.printLine(40);
         }
-        AI.carteRest();
-        for (int i = 0; i <joueurs.size() ; i++) {
-            show(i);
-        }
-        System.out.println();
 
+        private static void showAlert (String message){
+            Platform.runLater(() -> {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.initOwner(primaryStage);
+                alert.setTitle("Regle du jeu");
+                alert.setHeaderText(null);
+                alert.setContentText(message);
+                alert.showAndWait();
+            });
+        }
     }
-    public static void GameLogic(){
-        // Jouer au  jeu
-        init();
-        while (joueurs.get(joueurs.size()-1).size()!=0) {
-            game();
-        }
-        List<Integer> Score = new ArrayList<>();;
-        for (int i = 0;i<joueurs.size();i++){
-            int point = 0;
-            for (int j = 0; j<joueursPli.get(i).size();j++){
-                point += joueursPli.get(i).get(j).getNbTaureau();
-            }
-            Score.add(point);
-            System.out.println("Nombre de taureau joueurs " + i + " : " + point);
-        }
-        method.enterContinue();
-        method.clearConsole();
-        method.printLine(40);
-        afficherElementPlusPetit(Score);
-        afficherElementPlusGrand(Score);
-        method.printLine(40);
 
-    }
-}

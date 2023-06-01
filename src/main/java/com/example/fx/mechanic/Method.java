@@ -12,10 +12,11 @@ import static com.example.fx.joueurs.joueurs.joueurs;
 import static com.example.fx.object.Card.Allcarte;
 import static com.example.fx.object.Card.cartes;
 
-
+import lombok.*;
+@Getter@Setter
 public class Method {
     static Scanner sc = new Scanner(System.in);
-    public static Card Card0 = new Card(0, 0,null);
+    public static Card Card0;
     public static int nbr_joueur;
     public static Card[][] rangees ;
     public static void afficherElementPlusPetit(List<Integer> liste) {
@@ -58,11 +59,6 @@ public class Method {
     }
     public static void plateau(){
         String plateau="";
-
-
-
-
-
 
 
         method.clearConsole();

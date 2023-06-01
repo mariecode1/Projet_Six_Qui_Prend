@@ -6,6 +6,18 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.fx.HelloApplication;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 @Getter
 @Setter
 public class Card {
@@ -41,10 +53,10 @@ public class Card {
         return cartes.get(i - 1).getNbTaureau();
     }
 
-    public static List<Card> cart() {
+    public static List<Card> cart(ActionEvent event,Stage primaryStage) throws IOException {
         // Initialiser les cartes avec les valeurs de 1 à 104
         for (int i = 1; i <= 104; i++) {
-            Card card = new Card(0, 0,null);
+            Card card = new Card(i, 0,null);
             cartes.add(card);
             Allcarte.add(card);
             cartes.get(i - 1).setNum_card(i);
