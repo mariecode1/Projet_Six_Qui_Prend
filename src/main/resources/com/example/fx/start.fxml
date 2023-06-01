@@ -24,12 +24,12 @@
    <bottom>
       <HBox alignment="TOP_CENTER" prefHeight="211.0" prefWidth="1080.0" spacing="150.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#switchSceneStart" prefHeight="50.0" prefWidth="150.0" style="-fx-border-color: blue; -fx-border-width: 2; -fx-border-style: solid; -fx-border-radius: 25; -fx-background-color: white; -fx-background-radius: 25; -fx-background-insets: 1;" text="start game" textFill="#5e00ff">
+            <Button mnemonicParsing="false" onAction="#switchSceneStart" prefHeight="50.0" prefWidth="150.0" style="-fx-border-color: blue; -fx-border-width: 2; -fx-border-style: solid; -fx-border-radius: 25; -fx-background-color: white; -fx-background-radius: 25; -fx-background-insets: 1;" text="Start Game" textFill="#5e00ff">
                <font>
                   <Font name="Inter Semi Bold" size="19.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchScene" prefHeight="50.0" prefWidth="150.0" style="-fx-border-color: blue; -fx-border-width: 2; -fx-border-style: solid; -fx-border-radius: 25; -fx-background-color: white; -fx-background-radius: 25; -fx-background-insets: 1;" text="regle" textFill="#5e00ff">
+            <Button mnemonicParsing="false" onAction="#switchScene" prefHeight="50.0" prefWidth="150.0" style="-fx-border-color: blue; -fx-border-width: 2; -fx-border-style: solid; -fx-border-radius: 25; -fx-background-color: white; -fx-background-radius: 25; -fx-background-insets: 1;" text="Rules" textFill="#5e00ff">
                <font>
                   <Font name="Inter Semi Bold" size="19.0" />
                </font>

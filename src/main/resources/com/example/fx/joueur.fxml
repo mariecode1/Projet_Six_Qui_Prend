@@ -7,13 +7,13 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #AE140C;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.HelloController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #DE190F;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.HelloController">
    <children>
-      <VBox alignment="CENTER" layoutX="205.0" layoutY="91.0" prefHeight="573.0" prefWidth="671.0" spacing="25.0" style="-fx-border-radius: 25; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: white; -fx-padding: 30px;" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="204.0" AnchorPane.topAnchor="91.0">
+      <VBox alignment="CENTER" layoutX="205.0" layoutY="91.0" prefHeight="573.0" prefWidth="671.0" spacing="25.0" style="-fx-border-radius: 25; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: white; -fx-padding: 30px; -fx-background-color: #DE190F; -fx-background-radius: 25;" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="204.0" AnchorPane.topAnchor="91.0">
          <children>
-            <Label alignment="CENTER" prefHeight="173.0" prefWidth="494.0" text="Regle" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" prefHeight="173.0" prefWidth="494.0" text="C'est 6 Qui Prend" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Fira Code Retina" size="34.0" />
+                  <Font name="Bauhaus 93" size="62.0" />
                </font>
                <effect>
                   <DropShadow height="10.74" radius="3.7725" spread="1.0" width="6.35">
@@ -31,7 +31,7 @@
                   <Insets top="50.0" />
                </VBox.margin>
             </Label>
-            <SplitPane orientation="VERTICAL" prefHeight="72.0" prefWidth="561.0" style="-fx-background-color: #AE140C;">
+            <SplitPane orientation="VERTICAL" prefHeight="72.0" prefWidth="561.0" style="-fx-background-color: #DE190F;">
                <items>
                   <TextField fx:id="joueur" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="265.0" />
                </items>
@@ -49,14 +49,14 @@
                   <Insets top="50.0" />
                </VBox.margin>
             </Label>
-            <CheckBox fx:id="ia" alignment="TOP_RIGHT" contentDisplay="BOTTOM" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#checkIA" prefHeight="21.0" prefWidth="76.0" text="oui" textFill="WHITE">
+            <CheckBox fx:id="ia" alignment="TOP_RIGHT" contentDisplay="BOTTOM" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#checkIA" prefHeight="21.0" prefWidth="76.0" text="Yes !" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Nova Cond Light Italic" size="18.0" />
                </font>
             </CheckBox>
             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="250.0" prefWidth="607.0" spacing="100.0">
                <children>
-                  <Button fx:id="valider" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#valider" prefHeight="43.0" prefWidth="170.0" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-width: 2; -fx-background-insets: 1; -fx-background-radius: 15; -fx-border-radius: 15;" text="Confirm choice" textFill="#4901ff" textOverrun="CLIP">
+                  <Button fx:id="valider" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#valider" prefHeight="43.0" prefWidth="170.0" style="-fx-background-color: blue; -fx-border-color: white; -fx-border-width: 2; -fx-background-insets: 1; -fx-background-radius: 15; -fx-border-radius: 15;" text="Confirm choice" textFill="WHITE" textOverrun="CLIP">
                      <font>
                         <Font name="Arial Nova" size="18.0" />
                      </font>
