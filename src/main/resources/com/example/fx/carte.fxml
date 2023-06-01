@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="133.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane centerShape="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-position: center;" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="numbers card" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="45.0" textAlignment="CENTER" textFill="#4806ff">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></Pane>
+   </center>
+   <bottom>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="27.0" prefWidth="133.0" spacing="18.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="numbers card" textFill="#6600ff">
+               <font>
+                  <Font name="Impact" size="12.0" />
+               </font></Label>
+            <Label id="numbertaureau" textFill="#6900ff">
+               <font>
+                  <Font name="Tempus Sans ITC" size="12.0" />
+               </font></Label>
+            <Label id="numbers card" textFill="#6600ff">
+               <font>
+                  <Font name="Impact" size="12.0" />
+               </font></Label>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="133.0" spacing="18.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="numbers card" textFill="#6600ff">
+               <font>
+                  <Font name="Impact" size="12.0" />
+               </font></Label>
+            <Label id="numbertaureau" />
+            <Label id="numbers card" textFill="#6600ff">
+               <font>
+                  <Font name="Impact" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
