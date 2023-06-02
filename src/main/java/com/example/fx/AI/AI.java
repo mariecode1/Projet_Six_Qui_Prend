@@ -56,7 +56,6 @@ public class AI {
             binV.clear();
             Allcarte.addAll(SaveCard);
             SaveCard.clear();
-
         }
     }
     public static void carteRest(){
