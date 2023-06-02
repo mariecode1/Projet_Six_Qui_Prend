@@ -1,6 +1,7 @@
 package com.example.fx.mechanic;
 
 import com.example.fx.AI.AI;
+import com.example.fx.HelloController;
 import com.example.fx.method;
 import com.example.fx.object.Card;
 
@@ -12,11 +13,15 @@ import static com.example.fx.joueurs.joueurs.joueurs;
 import static com.example.fx.object.Card.Allcarte;
 import static com.example.fx.object.Card.cartes;
 
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import lombok.*;
 @Getter@Setter
 public class Method {
     static Scanner sc = new Scanner(System.in);
-    public static Card Card0;
+    public static Card Card0 ;
     public static int nbr_joueur;
     public static Card[][] rangees ;
     public static void afficherElementPlusPetit(List<Integer> liste) {
@@ -52,14 +57,24 @@ public class Method {
         rangees = new Card[6][4];
         AI.rangeesV = new Card[6][4];
 
-        for (int i = 0; i <= rangees.length-1; i++) { //met dans toutes les"cases" du tableau la carte Card0 par défaut
+        for (int i = 0; i <= rangees.length-1; i++) { //met dans toutes les "cases" du tableau la carte Card0 par défaut
             for (int j = 0; j <= rangees[i].length-1; j++) {
                 rangees[i][j] = Card0;
             }
         }
+
+        for (int i =0;i<4;i++){
+
+
+            rangees[0][i]=cartes.get(0);
+            Allcarte.remove(cartes.get(0));
+            cartes.remove(cartes.get(0));
+        }
     }
     public static void plateau(){
         String plateau="";
+
+
 
         method.clearConsole();
         method.printLine(50);
@@ -99,11 +114,6 @@ public class Method {
     }
     public static void init(){
         Initplateau();
-        for (int i =0;i<4;i++){
-            rangees[0][i]=cartes.get(0);
-            Allcarte.remove(cartes.get(0));
-            cartes.remove(cartes.get(0));
-        }
         plateau();
     }
 

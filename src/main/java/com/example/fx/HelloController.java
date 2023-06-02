@@ -12,8 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.geometry.HPos;
 
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,11 +31,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+
+import static com.example.fx.object.Card.Allcarte;
+import static com.example.fx.object.Card.cartes;
 
 
 public class HelloController implements Initializable {
@@ -48,9 +51,11 @@ public class HelloController implements Initializable {
     @FXML
     private HBox main;
     @FXML
+    private GridPane grid_pane;
+    @FXML
     private FlowPane cardpane;
     private Stage primaryStage;
-    private Scene scene;
+    public static Scene scene;
     private Parent root;
     public void switchScene(ActionEvent event) throws IOException{
         primaryStage =(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -73,7 +78,7 @@ public class HelloController implements Initializable {
             }
             catch (NumberFormatException e){
                 joueur.clear();
-                alertjoueur.setText("Entrer un nombre !!");
+                alertjoueur.setText("Enter an integer!!");
             }
             finally {
                 joueur.clear();
@@ -118,6 +123,17 @@ public class HelloController implements Initializable {
             CardController.start(i);
         }
         System.out.println(joueurs.mainFx.size());
+
+        Method.Initplateau();
+        GridPane grid_pane = (GridPane) scene.lookup("#grid_pane");
+
+        for (int i =0;i<4;i++){
+            ImageView imgView = new ImageView();
+            Image image = new Image(Method.rangees[0][i].getPictureURL());
+            imgView.setImage(image);
+            grid_pane.add(imgView, 0, i);
+            grid_pane.setHalignment(imgView, HPos.RIGHT);
+        }
     }
     public void car(ActionEvent event) throws IOException{
         cardpane.getChildren().clear();
