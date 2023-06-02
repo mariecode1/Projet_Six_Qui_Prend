@@ -2,6 +2,7 @@ module com.example.fx {
     requires javafx.controls;
     requires javafx.fxml;
     requires lombok;
+    requires junit;
 
 
     opens com.example.fx to javafx.fxml;
