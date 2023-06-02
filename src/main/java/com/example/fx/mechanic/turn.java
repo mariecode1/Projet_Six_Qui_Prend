@@ -74,14 +74,14 @@ public class turn {
                 int choix;
                 int choix2;
                 show(i);
-                System.out.print("Joueur " + (i+1) + ", choisissez une carte : ");
+                System.out.print("Player " + (i+1) + ", choose a card : ");
                 choix = method.scInt("->",joueurs.get(i).size())-1;
                 if (verif(i, choix) == true){
                     Allcarte.remove(joueurs.get(i).get(choix));
                     turn(i,choix);
                 }
                 else{
-                    System.out.print("Joueur " + (i+1) + ", choisissez une colonne : ");
+                    System.out.print("Player " + (i+1) + ", choose a column : ");
                     choix2 = method.scInt("->",4)-1;
                     rammasser(i,choix2,joueurs.get(i).get(choix));
                     Allcarte.remove(joueurs.get(i).get(choix));

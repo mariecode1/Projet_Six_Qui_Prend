@@ -2,16 +2,12 @@ package com.example.fx.mechanic;
 
 import com.example.fx.AI.AI;
 import com.example.fx.method;
-import com.example.fx.object.Card;
-import com.example.fx.HelloApplication;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -80,7 +76,6 @@ public class Start {
                     joueurs.get(i).add(cartes.get(0));
                     cartes.remove(cartes.get(0));
                     show(i);
-
                 }
                 method.printLine(20);
                 method.clearConsole();
@@ -107,8 +102,8 @@ public class Start {
             method.enterContinue();
             method.clearConsole();
             method.printLine(40);
-            afficherElementPlusPetit(scores);
-            afficherElementPlusGrand(scores);
+            displaySmallestElement(scores);
+            displayBiggestElement(scores);
             method.printLine(40);
         }
 

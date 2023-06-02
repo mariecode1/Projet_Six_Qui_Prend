@@ -1,7 +1,6 @@
 package com.example.fx.mechanic;
 
 import com.example.fx.AI.AI;
-import com.example.fx.HelloController;
 import com.example.fx.method;
 import com.example.fx.object.Card;
 
@@ -13,10 +12,6 @@ import static com.example.fx.joueurs.joueurs.joueurs;
 import static com.example.fx.object.Card.Allcarte;
 import static com.example.fx.object.Card.cartes;
 
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import lombok.*;
 @Getter@Setter
 public class Method {
@@ -24,7 +19,7 @@ public class Method {
     public static Card Card0 ;
     public static int nbr_joueur;
     public static Card[][] rangees ;
-    public static void afficherElementPlusPetit(List<Integer> liste) {
+    public static void displaySmallestElement(List<Integer> liste) {
         int min = liste.get(0);
         int position = 0;
         for (int i = 1; i < liste.size(); i++) {
@@ -33,9 +28,9 @@ public class Method {
                 position = i;
             }
         }
-        System.out.println("Le joueur " + (position+1) + " a gagné!! avec un score de : " + min );
+        System.out.println("The player " + (position+1) + " won with a score of : " + min );
     }
-    public static void afficherElementPlusGrand(List<Integer> liste) {
+    public static void displayBiggestElement(List<Integer> liste) {
         int max = liste.get(0);
         int position = 0;
         for (int i = 1; i < liste.size(); i++) {
@@ -44,7 +39,7 @@ public class Method {
                 position = i;
             }
         }
-        System.out.println("Le joueur " + (position+1) + " a perdu avec un score de : " + max);
+        System.out.println("The player " + (position+1) + " lost with a score of : " + max);
     }
     public static void show(int i){
         System.out.println("\nMain Joueur " + (i + 1) + " : \n");
