@@ -47,7 +47,7 @@ public class AI {
 
 
         for(int i =0;i<profondeur;i++){
-            makeListIdentical(rangeesV,rangees);
+            makeListIdentical(rangeesV,rangees);  //on va faire toutes les options à partir de la liste rangeesV
             ordimainV.addAll(ordimain);
             ordibinV.addAll(ordibin);
             chooseMin(GameLogicAI());
@@ -92,6 +92,7 @@ public class AI {
 
 
     public static int lastcolV(int i){
+        //renvoie le numero de la dernière colonne remplie, sur une certaine ligne du plateau
         int lastcol=5;
         while( rangeesV[lastcol][i].getNum_card()==0){
             lastcol-=1;
@@ -114,8 +115,8 @@ public class AI {
         int lastcol;
         int indexLastcol=lastcolV(0);
 
-        for (int k = 1; k < 4; k++) {
-            lastcol = lastcolV(k);
+        for (int k = 1; k < 4; k++) {  //pour chaque rangée
+            lastcol = lastcolV(k);  //prend le num de la derniere colonne contenant une carte
             if ((cardPlay.getNum_card() > rangeesV[indexLastcol][indexRangee].getNum_card())) {
                 if ((rangeesV[lastcol][k].getNum_card() > rangeesV[indexLastcol][indexRangee].getNum_card()) && (rangeesV[lastcol][k].getNum_card() < cardPlay.getNum_card())) {
                     indexRangee = k;
@@ -128,10 +129,10 @@ public class AI {
                 indexLastcol=lastcol;
             }
         }
-        if (indexLastcol==4){
+        if (indexLastcol==4){  //s'il y a déjà 5cartes dans la rangée, à la 6e, on ramasse toute la rangée
             rammasserV(i,indexRangee,cardPlay);
         }
-        else {
+        else {  //sinon on ajoute la carte en bout de rangée
             rangeesV[indexLastcol + 1][indexRangee] = cardPlay;
         }
     }
@@ -139,7 +140,7 @@ public class AI {
         int indexLastcol=lastcolV(j);
         for (int k=0;k<=indexLastcol;k++) {
             joueursPliV.get(i).add(rangeesV[k][j]);
-            rangeesV[k][j]=Card0;
+            rangeesV[k][j]=Card0;  //la rangée est progressivement vidée
         }
         rangeesV[0][j]=cardPlay;
 
@@ -147,9 +148,9 @@ public class AI {
     public static void gameV(int l){
 
         int randomInput= (int) (Allcarte.size()*0.75);
-        int randomInputCol= random.nextInt(4);
+        int randomInputCol= random.nextInt(4); //choisit au hasard une ligne parmis les cartes du plateau
         int randomInputAI;
-        if (ordimainV.size()!=1) {
+        if (ordimainV.size()!=1) { //tant qu'il y a plus d'1 carte, un choix doit etre fait
             randomInputAI= random.nextInt(ordimainV.size()-1);  //choisit un entier au hasard s'il y a + d'une carte dans le paquet
         }
         else {
